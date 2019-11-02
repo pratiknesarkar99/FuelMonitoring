@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#090909">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/Title"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bordercayn"
+                android:gravity="center"
+                android:text="@string/the_fuel_monitoring_system"
+                android:textAllCaps="false"
+                android:textColor="#00897B"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/this_application_was_developed_by"
+                android:textColor="#FDFDFD"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_1_pratik_nesarkar"
+                android:textColor="#00897B"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_2_rushikesh_nale"
+                android:textColor="#00897B"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_3_saish_kankekar"
+                android:textColor="#00897B"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_4_rohan_bevinkatti"
+                android:textColor="#00897B"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_5_shreeyash_kulkarni"
+                android:textColor="#00897B"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/the_students_of_b_e_i_t"
+                android:textColor="#FDFDFD"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/department_of_information_technology_kit_s_college_of_engineering_autonomous_kolhapur"
+                android:textColor="#FDFFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/as_a_part_of_the_mega_project_for_the_year_2019_20"
+                android:textColor="#F8FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/project_guide_miss_m_s_patil"
+                android:textColor="#00897B"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/the_fuel_monitoring_system_is_fully_automotive_system_that_will_detect_possible_fuel_frauds_at_the_fuel_stations_and_also_help_the_users_keep_a_track_of_the_daily_fuel_usage_the_application_will_track_the_fuel_usage_by_the_user_and_analyse_the_data_to_produse_effective_outputs_which_will_benifit_the_user_this_application_will_give_the_user_the_ability_to_store_his_her_data_onto_the_server_which_will_enable_the_user_to_access_the_data_from_almost_anywhere_at_anytime_the_application_will_take_user_feedback_regarding_the_fuel_stations_and_provide_the_other_users_with_appropriate_suggestions_to_find_a_good_fuel_station_where_frauds_occur_in_less_amount_the_system_interfaces_with_a_arduino_uno_board_mounted_onto_his_her_vehicle_which_will_process_the_data_provided_by_the_flow_sensor_this_will_give_the_user_information_about_the_amount_of_fuel_being_filled_into_the_vehicle_at_real_time_accurately_hence_notifying_the_user_in_case_of_fraud_to_avoid_the_financial_loss_of_users_along_with_this_the_system_will_calculate_the_amount_of_fuel_left_in_the_fuel_tank_accurately_and_notify_the_user_if_the_fuel_level_is_low_not_just_this_but_also_providing_the_user_directions_to_the_nearby_fuel_station_with_good_ratings"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="117dp"
+                android:gravity="center"
+                android:text="@string/we_hope_this_application_benefits_you_users"
+                android:textColor="#00897B"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:background="@drawable/bordercayn"
+                android:gravity="center"
+                android:text="@string/contact_us"
+                android:textAllCaps="false"
+                android:textColor="#00897B"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/fbBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#000C0000"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/ic_facebook" />
+
+                <ImageButton
+                    android:id="@+id/googleBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#000C0000"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/ic_google" />
+
+                <ImageButton
+                    android:id="@+id/instaBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="58dp"
+                    android:layout_weight="1"
+                    android:background="#000C0000"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/ic_instagram" />
+
+                <ImageButton
+                    android:id="@+id/twitterBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="58dp"
+                    android:layout_weight="1"
+                    android:background="#000C0000"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/ic_twitter" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="@string/or"
+                android:textColor="#FDFDFD"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="20dp"
+                android:autofillHints=""
+                android:background="@drawable/ovaledittext"
+                android:drawableStart="@drawable/ic_mail_outline_black_24dp"
+                android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
+                android:ems="10"
+                android:hint="@string/enter_e_mail_here"
+                android:inputType="textEmailAddress"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="#00897B"
+                android:textColorHint="#8BFFFFFF" tools:targetApi="o"/>
+
+            <Button
+                android:id="@+id/submitbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/circle"
+                android:text="@string/submit" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
