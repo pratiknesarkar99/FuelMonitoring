@@ -15,11 +15,8 @@ import androidx.fragment.app.Fragment;
 import com.example.myapplication.R;
 import com.example.myapplication.user.UserFgtPassword;
 import com.example.myapplication.user.UserRegistration;
-import com.example.myapplication.user.UserHome;
 
 public class tab1_user extends Fragment {
-        //Counter for No of Attempts
-        private static int COUNTER = 5;
 
         private EditText uname, pass;
         private Button loginBtn, forgotpassBtn, registerBtn;
@@ -62,22 +59,10 @@ public class tab1_user extends Fragment {
         }
 
         public void validate(String uname, String pass){
-            if(uname.equals("user") && pass.equals("user")){
-                Intent intent = new Intent(this.getContext(), UserHome.class);
-                Toast toast = Toast.makeText(this.getContext(), "*Login Successful*", Toast.LENGTH_SHORT);
-                toast.show();
-                startActivity(intent);
-            }else {
-                COUNTER--;
-                Toast toast = Toast.makeText(this.getContext(), "Wrong credentials!!! "+COUNTER+"attempts left!!!", Toast.LENGTH_SHORT);
-                toast.show();
+            String type = "userlogin";
 
-                if(COUNTER == 0){
-                    loginBtn.setEnabled(false);
-                    Toast toast1 = Toast.makeText(this.getContext(), "Login Blocked, Try again Later!!!", Toast.LENGTH_SHORT);
-                    toast1.show();
-              }
-            }
+            UserBackgroundWorker userBackgroundWorker = new UserBackgroundWorker(this.getContext());
+            userBackgroundWorker.execute(type, uname, pass);
         }
 
         public  void  openRegistrationForm(){

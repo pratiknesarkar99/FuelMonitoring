@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.admin.AdminFgtPassword;
-import com.example.myapplication.admin.AdminHome;
 import com.example.myapplication.R;
 
 public class tab2_admin extends Fragment{
@@ -48,15 +47,10 @@ public class tab2_admin extends Fragment{
     }
 
     public void validate(String uname, String pass){
-        if(uname.equals("admin") && pass.equals("admin")){
-            Intent intent = new Intent(this.getContext(), AdminHome.class);
-            Toast toast = Toast.makeText(this.getContext(), "Logging in", Toast.LENGTH_SHORT);
-            toast.show();
-            startActivity(intent);
-        }else {
-            Toast toast = Toast.makeText(this.getContext(), "Wrong credentials!!!", Toast.LENGTH_SHORT);
-            toast.show();
-        }
+        String type = "adminlogin";
+
+        AdminBackgroundWorker adminBackgroundWorker = new AdminBackgroundWorker(this.getContext());
+        adminBackgroundWorker.execute(type, uname, pass);
     }
 
     public  void  openResetPassForm(){

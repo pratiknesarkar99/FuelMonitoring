@@ -18,8 +18,15 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="#222222"
         android:fitsSystemWindows="true"
+        android:hapticFeedbackEnabled="true"
+        android:scrollbarThumbHorizontal="@android:color/darker_gray"
+        android:scrollbarThumbVertical="@android:color/darker_gray"
         app:headerLayout="@layout/nav_header_user_home"
+        app:insetForeground="@color/colorAccent"
+        app:itemIconTint="#D81B1B"
+        app:itemTextColor="#A5A1A1"
         app:menu="@menu/activity_user_home_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
