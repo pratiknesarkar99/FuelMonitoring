@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Fuel Monitoring</string>
+    <string name="map_key" translatable="false">AIzaSyBJqqGBPSwbZcWCsEVHSJFy-YQb16JU8ys</string>
     <string name="tab_text_1">User</string>
     <string name="tab_text_2">Admin</string>
     <string name="tab_text_3">About</string>
@@ -51,4 +52,29 @@
     <string name="enter_new_password">Enter new password</string>
     <string name="generate_otp">Generate OTP</string>
     <string name="resend">Resend</string>
+    <string name="welcome_to_your_profile">Welcome to your Profile</string>
+    <string name="welcome_to_your_profile_user">Welcome to your Profile User</string>
+    <string name="logout">Logout</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="fuel_level">Fuel Level</string>
+    <string name="daily_usage">Daily Usage</string>
+    <string name="annual_usage">Annual Usage</string>
+    <string name="average">Average</string>
+    <string name="nearby_stations">Nearby Stations</string>
+    <string name="add_vehicle">Add Vehicle</string>
+    <string name="monthly_usage">Monthly Usage</string>
+    <string name="communicate">Communicate</string>
+    <string name="weekly_usage">Weekly Usage</string>
+    <string name="fuel_levels_here">Fuel Levels Here</string>
+    <string name="send_e_mail">Send e-mail</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="update_profile_form">Update Profile Form</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="enter_contact_no">Enter Contact No</string>
+    <string name="new_admin_register_here">New Admin? Register Here</string>
+    <string name="find_nearby_fuel_stations">Find Nearby Fuel Stations</string>
+    <string name="show_map">Show Map</string>
+    <string name="textview">TextView</string>
+    <string name="fuel_monitoring_system">Fuel Monitoring System</string>
 </resources>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#090909"
+    android:orientation="vertical"
+    tools:context=".user.UserRegistration">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:gravity="center"
+                android:text="@string/update_profile_form"
+                android:textColor="#00897B"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/firstname"
+                style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginRight="33dp"
+                android:autofillHints=""
+                android:background="@drawable/ovaledittext"
+                android:ems="10"
+                android:hint="@string/enter_first_name"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="#FCFCFC"
+                android:textColorHint="#7CF8F7F7"
+                android:textStyle="bold"
+                tools:targetApi="o" />
+
+            <EditText
+                android:id="@+id/lastname"
+                style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginRight="35dp"
+                android:autofillHints=""
+                android:background="@drawable/ovaledittext"
+                android:ems="10"
+                android:hint="@string/enter_last_name"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="#FCFCFC"
+                android:textColorHint="#7CF8F7F7"
+                android:textStyle="bold"
+                tools:targetApi="o" />
+
+            <EditText
+                android:id="@+id/mobile"
+                style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginRight="33dp"
+                android:autofillHints=""
+                android:background="@drawable/ovaledittext"
+                android:ems="10"
+                android:hint="@string/enter_contact_no"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="#FCFCFC"
+                android:textColorHint="#7CF8F7F7"
+                android:textStyle="bold"
+                tools:targetApi="o" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="35dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/ovaledittext"
+                    android:ems="10"
+                    android:hint="City"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#80FFFFFF"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/ovaledittext"
+                    android:ems="10"
+                    android:hint="State"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#7CFFFFFF"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/userEmail"
+                style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginBottom="10dp"
+                android:autofillHints=""
+                android:background="@drawable/ovaledittext"
+                android:ems="10"
+                android:hint="Enter e-mail address"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="#FCFCFC"
+                android:textColorHint="#7CF8F7F7"
+                android:textStyle="bold"
+                tools:targetApi="o" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginRight="35dp"
+                android:autofillHints=""
+                android:background="@drawable/ovaledittext"
+                android:ems="10"
+                android:hint="Enter a strong password"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#79FFFFFF"
+                android:textStyle="bold"
+                tools:targetApi="o" />
+
+            <EditText
+                android:id="@+id/confirmpassword"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginRight="35dp"
+                android:autofillHints=""
+                android:background="@drawable/ovaledittext"
+                android:ems="10"
+                android:hint="Re-enter above password"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#79FFFFFF"
+                android:textStyle="bold"
+                tools:targetApi="o" />
+
+            <Button
+                android:id="@+id/RegisterBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="33dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/circle"
+                android:text="@string/update_profile"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

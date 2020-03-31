@@ -30,7 +30,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/userEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nav_header_subtitle"
