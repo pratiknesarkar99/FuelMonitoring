@@ -8,21 +8,43 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
+
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/fuel_level"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/fuel_level" />
+        <item
+            android:id="@+id/daily_usage"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:title="@string/daily_usage" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/weekly_usage"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/weekly_usage" />
+        <item
+            android:id="@+id/monthly_usage"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/monthly_usage" />
+        <item
+            android:id="@+id/annual_usage"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/annual_usage" />
+
+        <item
+            android:id="@+id/nearby_stations"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/nearby_stations" />
         <item
-            android:id="@+id/nav_tools"
+            android:id="@+id/average"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:title="@string/average" />
+        <item
+            android:id="@+id/add_vehicle"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/add_vehicle" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
