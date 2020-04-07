@@ -1,8 +1,8 @@
-package com.example.fuelmonitoring.user.fragments;
+package com.example.fuelmonitoring.user.fragments.mapdirectory;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -13,11 +13,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.fuelmonitoring.R;
-import com.example.fuelmonitoring.user.fragments.nearbyplaces.GetNearbyPlacesData;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -29,11 +27,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+
 public class getNearbyStations extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap ;
-    private double latitude=0, longitude=0;
-    private int PROXIMITY_RADIUS = 10000;
+    private GoogleMap mMap;
+    double latitude;
+    double longitude;
+    private int PROXIMITY_RADIUS = 1000;
 
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -52,13 +52,6 @@ public class getNearbyStations extends FragmentActivity implements OnMapReadyCal
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void fetchLastLocation() {
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    Activity#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for Activity#requestPermissions for more details.
 
             ActivityCompat.requestPermissions(this, new String[]
                     {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
@@ -71,7 +64,7 @@ public class getNearbyStations extends FragmentActivity implements OnMapReadyCal
                 if (location != null) {
                     currentLocation = location;
                     Toast.makeText(getApplicationContext(), currentLocation.getLatitude() + " " + currentLocation.getLongitude(), Toast.LENGTH_LONG);
-                    SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map);
+                    SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
                     supportMapFragment.getMapAsync(getNearbyStations.this);
                 }
             }
@@ -81,19 +74,19 @@ public class getNearbyStations extends FragmentActivity implements OnMapReadyCal
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.searchBtn:
-               Toast.makeText(this, "Fetching Nearby Fuel Stations", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Fetching Nearby Fuel Stations", Toast.LENGTH_LONG).show();
 
                 String fuelStn = "petrol";
-               String url = getUrl(latitude, longitude, fuelStn);
+                String url = getUrl(currentLocation.getLatitude(), currentLocation
+                        .getLongitude(), fuelStn);
 
                 Object dataTransfer[] = new Object[2];
 
                 dataTransfer[0] = mMap;
                 dataTransfer[1] = url;
 
-                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+                GetNearbyStationsData getNearbyPlacesData = new GetNearbyStationsData();
                 getNearbyPlacesData.execute(dataTransfer);
-
                 break;
         }
     }
@@ -103,25 +96,33 @@ public class getNearbyStations extends FragmentActivity implements OnMapReadyCal
         StringBuilder googlePlaceUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
 
         googlePlaceUrl.append("location=" + latitude + "," + longitude);
+
         googlePlaceUrl.append("&radius=" + PROXIMITY_RADIUS);
-        googlePlaceUrl.append("&type=" + nearbyPlace);
+        googlePlaceUrl.append("&type=gas_station");
+        googlePlaceUrl.append("&keyword=" + nearbyPlace);
         googlePlaceUrl.append("&sensor=true");
-        googlePlaceUrl.append("&key=" + "AIzaSyBJqqGBPSwbZcWCsEVHSJFy-YQb16JU8ys");
+        googlePlaceUrl.append("&key=" + "AIzaSyCptAW4Z4oJ9Lt3tQmlc0L_y5qTofJWcZc");
 
         Log.d("MapsActivity", "url = " + googlePlaceUrl.toString());
 
         return googlePlaceUrl.toString();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
         LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+        Log.d("Lat Lang", latLng.toString());
         MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("You are  here...");
         googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 5));
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f));
         googleMap.addMarker(markerOptions);
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)

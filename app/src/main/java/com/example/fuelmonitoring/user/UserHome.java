@@ -13,6 +13,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.view.MenuItem;
 
+import com.example.fuelmonitoring.user.fragments.feedback.feedback;
 import com.example.fuelmonitoring.user.fragments.fuel_level;
 import com.example.fuelmonitoring.user.fragments.nearby_stations;
 import com.example.fuelmonitoring.user.fragments.user_home;
@@ -124,16 +125,19 @@ public class UserHome extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new user_home()).commit();
+        } else if (id == R.id.fuel_level) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fuel_level()).commit();
         } else if (id == R.id.nearby_stations) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new nearby_stations()).commit();
-        } else if (id == R.id.average) {
-
+        } else if (id == R.id.add_vehicle) {
+           // getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fuel_level()).commit();
+            Toast.makeText(UserHome.this, "This module is Coming Soon!!!", Toast.LENGTH_SHORT).show();
+        }
+        else if (id == R.id.nav_feedback) {
+            Toast.makeText(this, "Opening Feedback Form", Toast.LENGTH_SHORT).show();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new feedback()).commit();
         } else if (id == R.id.nav_share) {
-                Toast.makeText(this, "Sharing", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_send) {
-            Toast.makeText(this, "Sending to cloud", Toast.LENGTH_SHORT).show();
-        }else if (id == R.id.fuel_level) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fuel_level()).commit();
+            Toast.makeText(this, "Sharing", Toast.LENGTH_SHORT).show();
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

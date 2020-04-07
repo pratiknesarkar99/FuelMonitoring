@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Fuel Monitoring</string>
-    <string name="map_key" translatable="false">AIzaSyBJqqGBPSwbZcWCsEVHSJFy-YQb16JU8ys</string>
     <string name="tab_text_1">User</string>
     <string name="tab_text_2">Admin</string>
     <string name="tab_text_3">About</string>
@@ -77,4 +76,15 @@
     <string name="show_map">Show Map</string>
     <string name="textview">TextView</string>
     <string name="fuel_monitoring_system">Fuel Monitoring System</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_get_nearby_stations">Map</string>
+    <string name="feedback">Feedback</string>
+    <string name="feedback_form">Feedback Form</string>
+    <string name="rate_the_ease_of_use_of_the_app">Rate the Ease-of-Use of the app:</string>
+    <string name="rate_the_efficiency_of_the_app">Rate the Efficiency of the app:</string>
+    <string name="rate_the_ui_of_the_app">Rate the UI of the app:</string>
+    <string name="rate_the_accuracy_of_the_app">Rate the Accuracy of the app:</string>
+    <string name="any_issues_faced_during_the_usage_optional">Any issues faced during the usage (optional):</string>
+    <string name="submit_feedback">Submit Feedback</string>
+    <string name="views_for_scope_of_improvement_if_any">Views for scope of improvement, if any:</string>
 </resources>

@@ -124,8 +124,6 @@ public class AdminHome extends AppCompatActivity
 
         } else if (id == R.id.nearby_stations) {
 
-        } else if (id == R.id.average) {
-
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

@@ -1,4 +1,4 @@
-package com.example.fuelmonitoring.user.fragments.nearbyplaces;
+package com.example.fuelmonitoring.user.fragments.mapdirectory;
 
 import android.util.Log;
 
@@ -12,7 +12,7 @@ import java.net.URL;
 
 public class DownloadUrl {
 
-    public String readUrl(String myUrl) throws  IOException{
+    public String readUrl(String myUrl) throws IOException {
         String data = "";
         InputStream inputStream= null;
 
