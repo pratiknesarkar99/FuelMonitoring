@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.fuelmonitoring.R;
+import com.example.fuelmonitoring.user.fragments.mapdirectory.getNearbyStations;
 
 public class nearby_stations extends Fragment{
 
@@ -31,11 +32,10 @@ public class nearby_stations extends Fragment{
             }
         });
         return view;
-
     }
 
     public void btnclick(){
         startActivity(new Intent(this.getContext(), getNearbyStations.class));
-        Toast.makeText(this.getContext(), "Loading Maps", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this.getContext(), "Loading Map", Toast.LENGTH_SHORT).show();
     }
 }

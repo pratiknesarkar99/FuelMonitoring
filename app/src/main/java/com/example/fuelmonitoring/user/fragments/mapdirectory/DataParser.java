@@ -1,4 +1,4 @@
-package com.example.fuelmonitoring.user.fragments.nearbyplaces;
+package com.example.fuelmonitoring.user.fragments.mapdirectory;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,14 +9,14 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataParser {
+    private  String placeName = "-NA-";
+    private  String vicinity = "-NA-";
+    private  String latitude = "";
+    private  String longitude = "";
+    private  String reference = "";
 
     private HashMap<String , String> getPlace(JSONObject googlePlaceJson){
         HashMap<String, String>googlePlacesMap = new HashMap<> ();
-        String placeName = "--NA--";
-        String vicinity = "--NA--";
-        String latitude = "";
-        String longitude = "";
-        String reference = "'";
 
         try{
             if(!googlePlaceJson.isNull("name")){

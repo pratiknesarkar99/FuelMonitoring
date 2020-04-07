@@ -31,7 +31,6 @@ public class user_home extends Fragment {
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     private TextView FuelInTV, Uname;
-    private Button button1;
     private  String fnm, lnm;
 
     @Nullable
@@ -45,13 +44,6 @@ public class user_home extends Fragment {
         Uname = (TextView) view.findViewById(R.id.username);
         FuelInTV= (TextView) view.findViewById(R.id.fuelin);
 
-        button1 = view.findViewById(R.id.launchWebActivity1);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(user_home.this.getContext(), webActivity_PetrolPrice.class));
-            }
-        });
         progressDialog.setMessage("Fetching your Data! Please wait.");
         progressDialog.show();
         fetchUserInfo();
@@ -101,7 +93,8 @@ public class user_home extends Fragment {
             }
         });
     }
-    public  void  showNotification(){
+
+    private  void  showNotification(){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getView().getContext(), "MyNotifications")
                 .setContentTitle("Fuel Monitoring System")
                 .setSmallIcon(R.drawable.gas)
