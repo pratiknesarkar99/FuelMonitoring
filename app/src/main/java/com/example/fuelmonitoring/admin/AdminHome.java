@@ -6,6 +6,10 @@ import android.os.Bundle;
 
 import com.example.fuelmonitoring.MainActivity;
 import com.example.fuelmonitoring.R;
+import com.example.fuelmonitoring.admin.fragments.admin_home;
+import com.example.fuelmonitoring.admin.fragments.contact_emails;
+import com.example.fuelmonitoring.admin.fragments.fuel_price_today;
+import com.example.fuelmonitoring.admin.fragments.view_users;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -38,8 +42,10 @@ public class AdminHome extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +70,10 @@ public class AdminHome extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        if(savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new admin_home()).commit();
+        }
     }
 
     @Override
@@ -84,9 +94,6 @@ public class AdminHome extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -120,10 +127,13 @@ public class AdminHome extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.update_info) {
-
-        } else if (id == R.id.nearby_stations) {
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new admin_home()).commit();
+        } else if (id == R.id.view_users) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new view_users()).commit();
+        } else if (id == R.id.fuel_price_today) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fuel_price_today()).commit();
+        } else if (id == R.id.contact_emails) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new contact_emails()).commit();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

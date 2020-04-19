@@ -15,8 +15,11 @@ import android.view.MenuItem;
 
 import com.example.fuelmonitoring.user.fragments.feedback.feedback;
 import com.example.fuelmonitoring.user.fragments.fuel_level;
+import com.example.fuelmonitoring.user.fragments.monthly_usage;
 import com.example.fuelmonitoring.user.fragments.nearby_stations;
 import com.example.fuelmonitoring.user.fragments.user_home;
+import com.example.fuelmonitoring.user.fragments.daily_usage;
+import com.example.fuelmonitoring.user.fragments.weekly_usage;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,6 +41,7 @@ public class UserHome extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -49,7 +53,6 @@ public class UserHome extends AppCompatActivity
         }
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
-
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -82,13 +85,12 @@ public class UserHome extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(UserHome.this, "Opening settings...", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(UserHome.this, DeleteProfile.class));
             return true;
         }
 
@@ -129,6 +131,12 @@ public class UserHome extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fuel_level()).commit();
         } else if (id == R.id.nearby_stations) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new nearby_stations()).commit();
+        } else if (id == R.id.daily_usage) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new daily_usage()).commit();
+        } else if (id == R.id.weekly_usage) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new weekly_usage()).commit();
+        } else if (id == R.id.monthly_usage) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new monthly_usage()).commit();
         } else if (id == R.id.add_vehicle) {
            // getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fuel_level()).commit();
             Toast.makeText(UserHome.this, "This module is Coming Soon!!!", Toast.LENGTH_SHORT).show();

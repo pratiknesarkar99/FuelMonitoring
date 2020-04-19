@@ -9,15 +9,15 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.os.Bundle;
-import android.text.Layout;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.fuelmonitoring.MainActivity;
+import com.MyApp;
 import com.example.fuelmonitoring.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,9 +28,25 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
+import java.util.regex.Pattern;
+
 public class UserRegistration extends AppCompatActivity {
 
-    String [] SPINNERLIST = {"Mumbai", "Pune", "Kolhapur", "Solapur", "Nashik", "Aurangabad", "Miraj"};
+    private static final Pattern NAME_PATTERN = Pattern.compile("[a-zA-Z]{2,}");
+
+    private static final Pattern MOBILE_PATTERN = Pattern.compile("^[6-9]\\d{9}$");
+
+    private  static final Pattern PASSWORD_PATTERN = Pattern.compile("^" +
+            "(?=.*[0-9])" +         //at least 1 digit
+            "(?=.*[a-z])" +         //at least 1 lower case letter
+            "(?=.*[A-Z])" +         //at least 1 upper case letter
+            "(?=.*[a-zA-Z])" +      //any letter
+            "(?=.*[@#$%^&+=])" +    //at least 1 special character
+            "(?=\\S+$)" +           //no white spaces
+            ".{4,}" +               //at least 4 characters
+            "$");
+
+    String [] SPINNERLIST = {"Mumbai", "Pune", "Kolhapur"};
 
     private EditText email, passwd, confirmpass, firstname, lastname, contact, citynm, statenm;
     private Button registerBtn;
@@ -86,36 +102,57 @@ public class UserRegistration extends AppCompatActivity {
         pass = passwd.getText().toString();
         confirm = confirmpass.getText().toString();
 
- /*       if(TextUtils.isEmpty(fname)){
-            Toast.makeText(UserRegistration.this, "Enter valid First Name", Toast.LENGTH_SHORT).show();
+        if(TextUtils.isEmpty(fname)){
+            Toast.makeText(UserRegistration.this, "First Name is required!!!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(!NAME_PATTERN.matcher(fname).matches()){
+            Toast.makeText(UserRegistration.this, "Enter valid First Name!!!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(lname)){
-            Toast.makeText(UserRegistration.this, "Enter valid Last Name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(UserRegistration.this, "Last Name is required!!!!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(!NAME_PATTERN.matcher(lname).matches()){
+            Toast.makeText(UserRegistration.this, "Enter valid Last Name!!!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(mobile)){
-            Toast.makeText(UserRegistration.this, "Enter valid Mobile No", Toast.LENGTH_SHORT).show();
+            Toast.makeText(UserRegistration.this, "Mobile No is required!!!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (!MOBILE_PATTERN.matcher(mobile).matches()){
+            Toast.makeText(UserRegistration.this, "Enter valid Mobile No!!!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(city)){
-            Toast.makeText(UserRegistration.this, "Enter valid City Name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(UserRegistration.this, "Select valid City!!!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(state)){
             Toast.makeText(UserRegistration.this, "Enter valid State Name", Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(mail)){
-            Toast.makeText(UserRegistration.this, "Enter valid email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(UserRegistration.this, "email is required!!!", Toast.LENGTH_SHORT).show();
             return;
-        }
-        if(TextUtils.isEmpty(pass)){
-            Toast.makeText(UserRegistration.this, "Enter valid password", Toast.LENGTH_SHORT).show();
+        } else if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
+            Toast.makeText(UserRegistration.this, "Enter valid e-mail!!!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-    */    if(pass.equals(confirm)){
+        if(TextUtils.isEmpty(pass)){
+            Toast.makeText(UserRegistration.this, "Password cannot be empty!!!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(!PASSWORD_PATTERN.matcher(pass).matches()){
+            Toast.makeText(UserRegistration.this, "Password too weak!!!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(pass.equals(confirm)){
             progressDialog.setMessage("Registering You! Please wait.");
             progressDialog.show();
             firebaseAuth.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -168,11 +205,11 @@ public class UserRegistration extends AppCompatActivity {
 
         UserProfile userProfile = new UserProfile(fname, lname, mobile, city, state, mail, pass, confirm);
         databaseReference.child("Profileinfo").setValue(userProfile);
-        databaseReference.child("FuelIn").child("value").setValue("0mL");
+        databaseReference.child("FuelIn").child("value").setValue("0");
  }
 
     public  void  showNotification(String message){
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "MyNotifications")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(MyApp.getContext(), "MyNotifications")
                 .setContentTitle("Fuel Monitoring System")
                 .setSmallIcon(R.drawable.gas)
                 .setAutoCancel(false)
@@ -181,7 +218,7 @@ public class UserRegistration extends AppCompatActivity {
 
         builder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
 
-        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(MyApp.getContext());
         notificationManagerCompat.notify(1, builder.build());
     }
 }

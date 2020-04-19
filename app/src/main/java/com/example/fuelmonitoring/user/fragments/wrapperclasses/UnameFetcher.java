@@ -1,8 +1,9 @@
-package com.example.fuelmonitoring.user.fragments;
+package com.example.fuelmonitoring.user.fragments.wrapperclasses;
 
 public class UnameFetcher {
 
     private  String fname, lname;
+    private  String city;
 
     public UnameFetcher() { }
 
@@ -17,5 +18,9 @@ public class UnameFetcher {
 
     public String getLname() {
         return lname;
+    }
+
+    public String getCity() {
+        return city;
     }
 }

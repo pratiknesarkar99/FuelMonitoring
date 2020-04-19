@@ -87,4 +87,22 @@
     <string name="any_issues_faced_during_the_usage_optional">Any issues faced during the usage (optional):</string>
     <string name="submit_feedback">Submit Feedback</string>
     <string name="views_for_scope_of_improvement_if_any">Views for scope of improvement, if any:</string>
+    <string name="x">---</string>
+    <string name="price_rs">Price (Rs.) :</string>
+    <string name="last_fuel_in">Last Fuel in:</string>
+    <string name="user_name">User name:</string>
+    <string name="today_s_petrol_price">Today\'s Petrol Price</string>
+    <string name="todo1">TODO</string>
+    <string name="today_s_fuel_price">Today\'s Fuel Price</string>
+    <string name="e_mail">e-mail</string>
+    <string name="fuel_price_today">Fuel Price Today</string>
+    <string name="today_s_date">Today\'s Date:</string>
+    <string name="fuel_prices">Fuel Prices:</string>
+    <string name="xx">--/--</string>
+    <string name="kolhapur">Kolhapur</string>
+    <string name="mumbai">Mumbai</string>
+    <string name="pune">Pune</string>
+    <string name="upload_prices">Upload Prices</string>
+    <string name="show_graphical_stats">Show Graphical Stats</string>
+    <string name="contact_emails">Contact e-mails</string>
 </resources>

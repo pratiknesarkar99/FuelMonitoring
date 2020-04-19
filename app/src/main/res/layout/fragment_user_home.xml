@@ -112,7 +112,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/lastfuelrs"
+                    android:id="@+id/cityNm"
                     android:layout_width="0dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="10dp"

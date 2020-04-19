@@ -109,10 +109,10 @@
                 android:textColor="#FFFFFF"
                 android:textColorHint="#BEFFFFFF"
                 android:textStyle="bold"
+                android:theme="@style/ThemeSpinner"
                 app:met_primaryColor="#00897B"
                 app:met_textColor="#00897B"
-                app:met_textColorHint="#ACAFAD"
-                android:theme="@style/ThemeSpinner"/>
+                app:met_textColorHint="#ACAFAD" />
 
             <EditText
                 android:id="@+id/state"

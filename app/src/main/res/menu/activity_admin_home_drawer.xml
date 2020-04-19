@@ -9,16 +9,20 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/update_info"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/view_users"
+            android:icon="@drawable/ic_view_users"
+            android:title="View Users" />
         <item
-            android:id="@+id/nearby_stations"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/fuel_price_today"
+            android:icon="@drawable/gas"
+            android:title="@string/today_s_fuel_price" />
+        <item
+            android:id="@+id/contact_emails"
+            android:icon="@drawable/ic_email_black_24dp"
+            android:title="@string/contact_emails" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
