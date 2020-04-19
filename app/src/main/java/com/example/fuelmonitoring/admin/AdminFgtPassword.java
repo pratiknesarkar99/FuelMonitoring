@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.fuelmonitoring.R;
 import com.example.fuelmonitoring.user.UserHome;
+import com.example.fuelmonitoring.user.UserRegistration;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,6 +39,15 @@ public class AdminFgtPassword extends AppCompatActivity {
         sendMailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(TextUtils.isEmpty(adminEmail.getText())){
+                    Toast.makeText(AdminFgtPassword.this, "email is required!!!", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if(!Patterns.EMAIL_ADDRESS.matcher(adminEmail.getText()).matches()){
+                    Toast.makeText(AdminFgtPassword.this, "Enter valid e-mail!!!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 firebaseAuth.sendPasswordResetEmail(adminEmail.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override

@@ -1,4 +1,4 @@
-package com.example.fuelmonitoring.user.fragments;
+package com.example.fuelmonitoring.user.fragments.wrapperclasses;
 
 public class FuelInputIndicator {
 

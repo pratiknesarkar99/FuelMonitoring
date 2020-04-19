@@ -15,6 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.fuelmonitoring.R;
+import com.example.fuelmonitoring.admin.fragments.wrapperclasses.ContactEmails;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class tab3_about extends Fragment {
     private EditText mail;
@@ -81,8 +87,14 @@ public class tab3_about extends Fragment {
             toast.show();
         }
         else {
-            Toast toast = Toast.makeText(this.getContext(), "Mail Submitted Successfully", Toast.LENGTH_SHORT);
-            toast.show();
+            Toast.makeText(this.getContext(), "Mail Submitted Successfully", Toast.LENGTH_SHORT).show();
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String currentDateTime = dateFormat.format(new Date());
+
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("ContactEmails");
+            ContactEmails contactEmails = new ContactEmails(mail);
+            databaseReference.child(currentDateTime).setValue(contactEmails);
         }
     }
 

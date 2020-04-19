@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#090909"
     android:orientation="vertical"
     tools:context=".user.UserRegistration">
@@ -92,44 +93,45 @@
                 android:textStyle="bold"
                 tools:targetApi="o" />
 
-            <LinearLayout
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/city"
+                app:met_primaryColor="#00897B"
+                app:met_textColor="#FFFFFF"
+                app:met_textColorHint="#ACAFAD"
                 android:layout_width="match_parent"
-                android:layout_height="53dp"
-                android:layout_marginLeft="33dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="35dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="35dp"
-                android:orientation="horizontal">
+                android:layout_marginRight="33dp"
+                android:layout_weight="1"
+                android:dropDownHeight="wrap_content"
+                android:ems="10"
+                android:hint="Select City"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#BEFFFFFF"
+                android:textStyle="bold"
+                android:theme="@style/ThemeSpinner" />
 
-                <EditText
-                    android:id="@+id/city"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/ovaledittext"
-                    android:ems="10"
-                    android:hint="City"
-                    android:inputType="textPersonName"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#80FFFFFF"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/state"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/ovaledittext"
-                    android:ems="10"
-                    android:hint="State"
-                    android:inputType="textPersonName"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#7CFFFFFF"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            <EditText
+                android:id="@+id/state"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="33dp"
+                android:layout_weight="1"
+                android:background="@drawable/ovaledittext"
+                android:ems="10"
+                android:hint="State"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Maharashtra"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#7CFFFFFF"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/userEmail"

@@ -9,7 +9,9 @@ import android.app.ProgressDialog;
 import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,8 +26,27 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+
+import java.util.regex.Pattern;
 
 public class EditProfile extends AppCompatActivity {
+
+    private static final Pattern NAME_PATTERN = Pattern.compile("[a-zA-Z]{2,}");
+
+    private static final Pattern MOBILE_PATTERN = Pattern.compile("^[6-9]\\d{9}$");
+
+    private  static final Pattern PASSWORD_PATTERN = Pattern.compile("^" +
+            "(?=.*[0-9])" +         //at least 1 digit
+            "(?=.*[a-z])" +         //at least 1 lower case letter
+            "(?=.*[A-Z])" +         //at least 1 upper case letter
+            "(?=.*[a-zA-Z])" +      //any letter
+            "(?=.*[@#$%^&+=])" +    //at least 1 special character
+            "(?=\\S+$)" +           //no white spaces
+            ".{4,}" +               //at least 4 characters
+            "$");
+
+    String [] SPINNERLIST = {"Mumbai", "Pune", "Kolhapur"};
 
     private EditText email, passwd, confirmpass, firstname, lastname, contact, citynm, statenm;
     private Button registerBtn;
@@ -39,6 +60,12 @@ public class EditProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String >(this,
+                android.R.layout.simple_dropdown_item_1line, SPINNERLIST);
+
+        MaterialBetterSpinner materialBetterSpinner = (MaterialBetterSpinner) findViewById(R.id.city);
+        materialBetterSpinner.setAdapter(stringArrayAdapter);
 
         firstname= (EditText) findViewById(R.id.firstname);
         lastname= (EditText) findViewById(R.id.lastname);
@@ -77,31 +104,52 @@ public class EditProfile extends AppCompatActivity {
         confirm = confirmpass.getText().toString();
 
         if(TextUtils.isEmpty(fname)){
-            Toast.makeText(EditProfile.this, "Enter valid First Name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EditProfile.this, "First Name is required!!!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(!NAME_PATTERN.matcher(fname).matches()){
+            Toast.makeText(EditProfile.this, "Enter valid First Name!!!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(lname)){
-            Toast.makeText(EditProfile.this, "Enter valid Last Name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EditProfile.this, "Last Name is required!!!!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(!NAME_PATTERN.matcher(lname).matches()){
+            Toast.makeText(EditProfile.this, "Enter valid Last Name!!!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(mobile)){
-            Toast.makeText(EditProfile.this, "Enter valid Mobile No", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EditProfile.this, "Mobile No is required!!!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (!MOBILE_PATTERN.matcher(mobile).matches()){
+            Toast.makeText(EditProfile.this, "Enter valid Mobile No!!!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(city)){
-            Toast.makeText(EditProfile.this, "Enter valid City Name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EditProfile.this, "Select valid City!!!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(state)){
             Toast.makeText(EditProfile.this, "Enter valid State Name", Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(mail)){
-            Toast.makeText(EditProfile.this, "Enter valid email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EditProfile.this, "email is required!!!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
+            Toast.makeText(EditProfile.this, "Enter valid e-mail!!!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(pass)){
-            Toast.makeText(EditProfile.this, "Enter valid password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EditProfile.this, "Password cannot be empty!!!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(!PASSWORD_PATTERN.matcher(pass).matches()){
+            Toast.makeText(EditProfile.this, "Password too weak!!!", Toast.LENGTH_SHORT).show();
             return;
         }
 

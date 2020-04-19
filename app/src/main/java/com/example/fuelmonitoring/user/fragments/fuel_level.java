@@ -14,7 +14,6 @@ import com.example.fuelmonitoring.R;
 
 public class fuel_level extends Fragment {
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
