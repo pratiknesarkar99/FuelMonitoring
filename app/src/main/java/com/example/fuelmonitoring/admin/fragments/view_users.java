@@ -55,7 +55,15 @@ public class view_users extends Fragment {
                 list.clear();
 
                 for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
+                    Log.d("Users: ", dataSnapshot1.toString());
 
+                    String uid = dataSnapshot1.getKey();
+                    ViewUsers viewUsers = dataSnapshot1.getValue(ViewUsers.class);
+                    viewUsers.setUid(uid);
+
+                    list.add(viewUsers);
+
+/*
                     final String uid = dataSnapshot1.getKey();
                     ViewUsers viewUsers = new ViewUsers();
                     viewUsers.setUid(uid);
@@ -79,6 +87,7 @@ public class view_users extends Fragment {
                     } catch (Exception e){
                         Log.d("Exception", String.valueOf(e));
                     }
+ */
                 }
                 viewUsersAdapter = new ViewUsersAdapter(view.getContext(), list);
                 recyclerView.setAdapter(viewUsersAdapter);

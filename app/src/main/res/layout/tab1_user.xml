@@ -41,7 +41,7 @@
                 android:drawableLeft="@drawable/ic_usernm"
                 android:ems="10"
                 android:hint="@string/e_mail"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:textColor="#FCFCFC"
                 android:textColorHint="#7CF8F7F7"
                 android:textStyle="bold"

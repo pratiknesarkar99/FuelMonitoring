@@ -6,9 +6,11 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,10 +18,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.fuelmonitoring.MainActivity;
 import com.example.fuelmonitoring.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,7 +49,6 @@ public class EditProfile extends AppCompatActivity {
     String [] SPINNERLIST = {"Mumbai", "Pune", "Kolhapur"};
 
     private EditText email, passwd, confirmpass, firstname, lastname, contact, citynm, statenm;
-    private Button registerBtn;
 
     String fname="", lname="",  mobile="",  city="", state="", mail="", pass="", confirm="";
 
@@ -61,26 +60,26 @@ public class EditProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String >(this,
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_dropdown_item_1line, SPINNERLIST);
 
-        MaterialBetterSpinner materialBetterSpinner = (MaterialBetterSpinner) findViewById(R.id.city);
+        MaterialBetterSpinner materialBetterSpinner = findViewById(R.id.city);
         materialBetterSpinner.setAdapter(stringArrayAdapter);
 
-        firstname= (EditText) findViewById(R.id.firstname);
-        lastname= (EditText) findViewById(R.id.lastname);
-        contact= (EditText) findViewById(R.id.mobile);
-        citynm= (EditText) findViewById(R.id.city);
-        statenm= (EditText) findViewById(R.id.state);
+        firstname=  findViewById(R.id.firstname);
+        lastname=  findViewById(R.id.lastname);
+        contact=  findViewById(R.id.mobile);
+        citynm=  findViewById(R.id.city);
+        statenm=  findViewById(R.id.state);
 
-        email = (EditText) findViewById(R.id.userEmail);
-        passwd = (EditText) findViewById(R.id.password);
-        confirmpass= (EditText) findViewById(R.id.confirmpassword);
+        email =  findViewById(R.id.userEmail);
+        passwd =  findViewById(R.id.password);
+        confirmpass= findViewById(R.id.confirmpassword);
 
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        registerBtn = (Button) findViewById(R.id.RegisterBtn);
+        Button registerBtn = findViewById(R.id.RegisterBtn);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,6 +157,7 @@ public class EditProfile extends AppCompatActivity {
             progressDialog.show();
             sendUserData();
             Toast.makeText(EditProfile.this, "*Your Profile has been Updated*", Toast.LENGTH_SHORT).show();
+            finish();
             progressDialog.dismiss();
 
         } else {
@@ -169,7 +169,7 @@ public class EditProfile extends AppCompatActivity {
 
     public void sendUserData(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid()).child("Profileinfo");;
+        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid());
 
         UserProfile userProfile = new UserProfile(fname, lname, mobile, city, state, mail, pass, confirm);
         databaseReference.setValue(userProfile);
@@ -177,19 +177,24 @@ public class EditProfile extends AppCompatActivity {
 
     public void showData(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid()).child("Profileinfo");;
+        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                firstname.setText(userProfile.getFname());
-                lastname.setText(userProfile.getLname());
-                contact.setText(userProfile.getMobile());
-                citynm.setText(userProfile.getCity());
-                statenm.setText(userProfile.getState());
-                email.setText(userProfile.getMail());
-                passwd.setText(userProfile.getPass());
-                confirmpass.setText(userProfile.getConfirm());
+                try {
+                    UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
+                    firstname.setText(userProfile.getFname());
+                    lastname.setText(userProfile.getLname());
+                    contact.setText(userProfile.getMobile());
+                    citynm.setText(userProfile.getCity());
+                    statenm.setText(userProfile.getState());
+                    email.setText(userProfile.getMail());
+                    passwd.setText(userProfile.getPass());
+                    confirmpass.setText(userProfile.getConfirm());
+                } catch (Exception e){
+                    startActivity(new Intent(EditProfile.this, MainActivity.class));
+                    Log.d("Err: ",  e.getMessage());
+                }
             }
 
             @Override
@@ -199,6 +204,7 @@ public class EditProfile extends AppCompatActivity {
             }
         });
     }
+
     public  void  showNotification(String message){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "MyNotifications")
                 .setContentTitle("Fuel Monitoring System")

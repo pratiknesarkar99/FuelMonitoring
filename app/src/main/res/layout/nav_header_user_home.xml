@@ -35,7 +35,7 @@
         android:id="@+id/textView23"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="com.android.fuelmonitoring@user"
+        android:text="@string/com_android_fuelmonitoring_user"
         android:textColor="#E2CE2A2A"
         android:textStyle="normal" />
 

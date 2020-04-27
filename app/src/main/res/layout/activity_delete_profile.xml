@@ -7,6 +7,23 @@
     android:background="#0C0C0C"
     tools:context="com.example.fuelmonitoring.user.DeleteProfile">
 
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bordercayn"
+        android:gravity="center"
+        android:text="@string/action_settings"
+        android:textColor="#00897B"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/deleteMyProfile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.032"
+        tools:layout_editor_absoluteX="0dp" />
+
     <Button
         android:id="@+id/deleteMyProfile"
         android:layout_width="wrap_content"
@@ -20,7 +37,7 @@
         android:background="@drawable/circle"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
-        android:text="Delete Profile"
+        android:text="@string/delete_profile"
         android:textAllCaps="false"
         android:textSize="18sp"
         android:textStyle="bold"

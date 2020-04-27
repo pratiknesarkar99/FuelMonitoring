@@ -4,11 +4,23 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textView49"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bordercayn"
+        android:gravity="center"
+        android:text="@string/welcome_to_your_profile"
+        android:textColor="#00897B"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/textView32"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Welcome to AdminHome"
+        android:text="@string/welcome_to_adminhome"
         android:textColor="#D81B60"
         android:textSize="24sp"
         android:textStyle="bold" />

@@ -68,7 +68,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/dark_oval"
                 android:gravity="center"
-                android:hint="Amount"
+                android:hint="@string/amount"
                 android:padding="5dp"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FCF7F7"

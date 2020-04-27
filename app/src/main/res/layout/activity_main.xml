@@ -18,7 +18,7 @@
             android:gravity="center"
             android:minHeight="?actionBarSize"
             android:padding="@dimen/appbar_padding"
-            android:text="Fuel Monitoring"
+            android:text="@string/fuel_monitoring"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
             android:textColor="#FD030000"
             android:textStyle="bold" />

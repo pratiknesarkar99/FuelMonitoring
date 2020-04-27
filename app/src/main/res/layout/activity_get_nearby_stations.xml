@@ -6,11 +6,26 @@
     android:layout_height="match_parent"
     tools:context="com.example.fuelmonitoring.user.fragments.mapdirectory.getNearbyStations">
 
-    <fragment
+    <TextView
+        android:id="@+id/textView50"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bordercayn"
+        android:gravity="center"
+        android:text="@string/nearby_stations"
+        android:textColor="#00897B"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <fragment
         android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"/>
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="645dp"
+        android:layout_below="@+id/textView50"
+        android:layout_alignTop="@+id/textView50"
+        android:layout_marginTop="76dp" />
 
     <Button
         android:id="@+id/searchBtn"

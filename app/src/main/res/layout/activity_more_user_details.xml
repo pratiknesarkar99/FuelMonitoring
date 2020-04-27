@@ -17,7 +17,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/ovaledittext"
         android:gravity="center"
-        android:text="User Profile View"
+        android:text="@string/user_profile_details"
         android:textColor="#00897B"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -43,14 +43,16 @@
             android:textColor="#030000"
             android:textColorHighlight="#C31B1A1F"
             android:textSize="14sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:layout_marginEnd="@dimen/nav_header_vertical_spacing" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginRight="@dimen/nav_header_vertical_spacing"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginEnd="@dimen/nav_header_vertical_spacing">
 
             <TextView
                 android:id="@+id/fnameTVadmin"
@@ -92,7 +94,8 @@
             android:textColor="#030000"
             android:textColorHighlight="#C31B1A1F"
             android:textSize="18sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:layout_marginEnd="@dimen/nav_header_vertical_spacing" />
 
         <TextView
             android:id="@+id/cityTVadmin"
@@ -105,7 +108,8 @@
             android:textColor="#030000"
             android:textColorHighlight="#C31B1A1F"
             android:textSize="18sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:layout_marginEnd="@dimen/nav_header_vertical_spacing" />
 
         <TextView
             android:id="@+id/stateTVadmin"
@@ -118,7 +122,8 @@
             android:textColor="#030000"
             android:textColorHighlight="#C31B1A1F"
             android:textSize="18sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:layout_marginEnd="@dimen/nav_header_vertical_spacing" />
 
         <TextView
             android:id="@+id/mailTVadmin"
@@ -131,7 +136,8 @@
             android:textColor="#030000"
             android:textColorHighlight="#C31B1A1F"
             android:textSize="18sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:layout_marginEnd="@dimen/nav_header_vertical_spacing" />
 
         <Button
             android:id="@+id/goBack"
@@ -147,7 +153,7 @@
             android:shadowDy="10"
             android:singleLine="false"
             android:soundEffectsEnabled="true"
-            android:text="Back"
+            android:text="@string/back"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textColorHighlight="#C31B1A1F"

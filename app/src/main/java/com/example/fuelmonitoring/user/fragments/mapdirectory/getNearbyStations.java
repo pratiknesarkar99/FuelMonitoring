@@ -34,6 +34,7 @@ public class getNearbyStations extends FragmentActivity implements OnMapReadyCal
     double latitude;
     double longitude;
     private int PROXIMITY_RADIUS = 1000;
+    String google_maps_key = "AIzaSyDnN0jJHPmFgv50N3kTFHqyFSASbOLpnv4";
 
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -101,7 +102,7 @@ public class getNearbyStations extends FragmentActivity implements OnMapReadyCal
         googlePlaceUrl.append("&type=gas_station");
         googlePlaceUrl.append("&keyword=" + nearbyPlace);
         googlePlaceUrl.append("&sensor=true");
-        googlePlaceUrl.append("&key=" + "AIzaSyCptAW4Z4oJ9Lt3tQmlc0L_y5qTofJWcZc");
+        googlePlaceUrl.append("&key=" + google_maps_key);
 
         Log.d("MapsActivity", "url = " + googlePlaceUrl.toString());
 

@@ -201,12 +201,16 @@ public class UserRegistration extends AppCompatActivity {
 
     public void sendUserData(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid());
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
 
         UserProfile userProfile = new UserProfile(fname, lname, mobile, city, state, mail, pass, confirm);
-        databaseReference.child("Profileinfo").setValue(userProfile);
-        databaseReference.child("FuelIn").child("value").setValue("0");
- }
+        databaseReference.child("Users").child(firebaseAuth.getUid()).setValue(userProfile);
+
+        databaseReference.child("FuelIn").child(firebaseAuth.getUid()).child("value").setValue("0.0");
+        databaseReference.child("FuelOut").child(firebaseAuth.getUid()).child("value").setValue("0.0");
+        databaseReference.child("UsageDetails").child("showsUsageDetails").setValue("of users");
+
+    }
 
     public  void  showNotification(String message){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(MyApp.getContext(), "MyNotifications")

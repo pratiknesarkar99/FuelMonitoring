@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00FDFDFD"
+    android:background="#000000"
     android:orientation="vertical">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/bordercayn"
         android:gravity="center"
-        android:text="@string/monthly_usage"
+        android:text="@string/daily_usage"
         android:textColor="#00897B"
         android:textSize="28sp"
         android:textStyle="bold" />
@@ -24,7 +24,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView42"
@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="@string/fuel_usage_for_current_month"
+                android:text="@string/fuel_usage_on_day_to_day_basis"
                 android:textColor="#F8F8F8"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -44,7 +44,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:text="@string/x_axis_week_of_month"
+                android:text="@string/hrs_of_day"
                 android:textColor="#00897B"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -62,7 +62,7 @@
                 android:textStyle="bold" />
 
             <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/monthlyUsageGraphAmt"
+                android:id="@+id/dailyUsageGraphAmt"
                 android:layout_width="match_parent"
                 android:layout_height="365dp"
                 android:layout_margin="10dp"
@@ -91,7 +91,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/monthlytotalamtTv"
+                    android:id="@+id/dailytotalamtTv"
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="@string/fuel_cost_for_current_month"
+                android:text="@string/fuel_cost_on_day_to_day_basis"
                 android:textColor="#F8F8F8"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -121,7 +121,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:text="@string/x_axis_week_of_month"
+                android:text="@string/hrs_of_day"
                 android:textColor="#00897B"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -139,7 +139,7 @@
                 android:textStyle="bold" />
 
             <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/monthlyUsageGraphPrice"
+                android:id="@+id/dailyUsageGraphPrice"
                 android:layout_width="match_parent"
                 android:layout_height="365dp"
                 android:layout_margin="10dp"
@@ -168,7 +168,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/monthlytotalpriceTv"
+                    android:id="@+id/dailytotalpriceTv"
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"

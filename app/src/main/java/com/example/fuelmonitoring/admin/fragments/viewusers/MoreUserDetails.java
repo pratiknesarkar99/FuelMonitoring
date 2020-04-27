@@ -58,7 +58,7 @@ public class MoreUserDetails extends AppCompatActivity {
 
     public  void fetchUserData(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(uid).child("Profileinfo");;
+        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(uid);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
