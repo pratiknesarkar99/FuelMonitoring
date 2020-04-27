@@ -19,7 +19,7 @@
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
+                android:layout_height="65dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bordercayn"
                 android:gravity="center"
@@ -76,7 +76,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="0.4"
                     android:gravity="center_vertical"
-                    android:text="City :"
+                    android:text="@string/city"
                     android:textColor="#00897B"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -121,7 +121,7 @@
                     android:id="@+id/fuelin"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/ovaledittext"
                     android:gravity="center_vertical"
@@ -163,7 +163,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="10dp"
-                    app:cardBackgroundColor="#D3108B79"
+                    app:cardBackgroundColor="#008577"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -173,8 +173,8 @@
                         android:layout_height="79dp"
                         android:layout_margin="5dp"
                         android:gravity="center"
-                        android:text="0"
-                        android:textColor="#FFFFFF"
+                        android:text="@string/_0_0"
+                        android:textColor="#0A0000"
                         android:textSize="36sp"
                         android:textStyle="bold"
                         android:translationY="10dp" />
@@ -187,7 +187,7 @@
                         android:gravity="center"
                         android:shadowColor="#0E4943"
                         android:text="@string/today_s_petrol_price"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#000000"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:translationY="125dp" />
@@ -208,7 +208,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="/L"
+                        android:text="@string/l"
                         android:textColor="#0A0000"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -224,7 +224,21 @@
                     android:layout_margin="10dp"
                     app:cardBackgroundColor="#D3108B79"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp" />
+                    app:cardElevation="8dp" >
+
+                    <Button
+                        android:id="@+id/dailyUsageBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_type_cyan"
+                        android:drawableTop="@drawable/ic_trending_up_black_24dp"
+                        android:padding="20dp"
+                        android:text="@string/total_fuel_used_today"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
@@ -234,7 +248,21 @@
                     android:layout_margin="10dp"
                     app:cardBackgroundColor="#D3108B79"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp" />
+                    app:cardElevation="8dp" >
+
+                    <Button
+                        android:id="@+id/feedbackFormBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_type_cyan"
+                        android:drawableTop="@drawable/ic_feedback_black_24dp"
+                        android:padding="20dp"
+                        android:text="@string/give_application_feedback"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
@@ -244,7 +272,21 @@
                     android:layout_margin="10dp"
                     app:cardBackgroundColor="#D3108B79"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp" />
+                    app:cardElevation="8dp" >
+
+                    <Button
+                        android:id="@+id/editProfileBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_type_cyan"
+                        android:drawableTop="@drawable/ic_person_black_24dp"
+                        android:padding="20dp"
+                        android:text="@string/view_update_your_profile"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
             </GridLayout>
 
         </LinearLayout>

@@ -2,11 +2,13 @@ package com.example.fuelmonitoring.user.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,10 +17,13 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.MyApp;
 import com.example.fuelmonitoring.MainActivity;
 import com.example.fuelmonitoring.R;
+import com.example.fuelmonitoring.user.EditProfile;
+import com.example.fuelmonitoring.user.fragments.feedback.feedback;
 import com.example.fuelmonitoring.user.fragments.wrapperclasses.FuelInputIndicator;
 import com.example.fuelmonitoring.user.fragments.wrapperclasses.FuelPriceToday;
 import com.example.fuelmonitoring.user.fragments.wrapperclasses.UnameFetcher;
@@ -43,6 +48,7 @@ public class user_home extends Fragment {
     private  String fnm, lnm;
     public   static  String cname;
     private  static String fuelamt, fuelprice;
+    private Button dailyUsageBtn, feedbackFormBtn, editProfileBtn;
 
     @Nullable
     @Override
@@ -63,6 +69,40 @@ public class user_home extends Fragment {
 
         FuelPriceTV = view.findViewById(R.id.fuelpricetv);
 
+        feedbackFormBtn = view.findViewById(R.id.feedbackFormBtn);
+        feedbackFormBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Opening Feedback form...", Toast.LENGTH_SHORT).show();
+
+                Fragment fragment = null;
+                fragment = new feedback();
+                replaceFragment(fragment);
+            }
+        });
+
+        dailyUsageBtn = view.findViewById(R.id.dailyUsageBtn);
+        dailyUsageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Launching Daily Usage panel...", Toast.LENGTH_SHORT).show();
+
+                Fragment fragment = null;
+                fragment = new daily_usage();
+                replaceFragment(fragment);
+            }
+        });
+
+        editProfileBtn = view.findViewById(R.id.editProfileBtn);
+        editProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Opening your Profile...", Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(view.getContext(), EditProfile.class));
+            }
+        });
+
         fetchUserInfo();
         indicateFuelInput();
         fetchFuelPrice();
@@ -70,9 +110,16 @@ public class user_home extends Fragment {
         return view;
     }
 
+    public void replaceFragment(Fragment someFragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, someFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
     public void fetchUserInfo(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid()).child("Profileinfo");
+        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -99,7 +146,7 @@ public class user_home extends Fragment {
 
     private  void  fetchFuelPrice(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid()).child("Profileinfo");
+        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -196,7 +243,7 @@ public class user_home extends Fragment {
 
     public  void indicateFuelInput(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid()).child("FuelIn");;
+        DatabaseReference databaseReference = firebaseDatabase.getReference().child("FuelIn").child(firebaseAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -225,7 +272,7 @@ public class user_home extends Fragment {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference().child("UsageDetails").child(firebaseAuth.getUid());
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd(HH:mm:ss)");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
         String currentDateTime = dateFormat.format(new Date());
 
         //Toast.makeText(this.getContext(), currentDateTime,Toast.LENGTH_SHORT).show();
@@ -239,7 +286,7 @@ public class user_home extends Fragment {
         databaseReference.child(currentDateTime).child("price").setValue(price.toString());
 
         try {
-            Toast.makeText(MyApp.getContext(), "Uploading new fuel input data...",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MyApp.getContext(), "Fuel Monitoring System: Uploading new fuel input data...",Toast.LENGTH_SHORT).show();
         } catch (NullPointerException e) {
             System.err.println(e);
         }

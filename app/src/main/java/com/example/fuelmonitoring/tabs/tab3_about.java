@@ -87,14 +87,15 @@ public class tab3_about extends Fragment {
             toast.show();
         }
         else {
-            Toast.makeText(this.getContext(), "Mail Submitted Successfully", Toast.LENGTH_SHORT).show();
-
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String currentDateTime = dateFormat.format(new Date());
 
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("ContactEmails");
             ContactEmails contactEmails = new ContactEmails(mail);
             databaseReference.child(currentDateTime).setValue(contactEmails);
+
+            Toast.makeText(this.getContext(), "Mail Submitted Successfully", Toast.LENGTH_SHORT).show();
+
         }
     }
 

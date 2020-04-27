@@ -51,21 +51,34 @@ public class DeleteProfile extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, final int i) {
                 final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
-               DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference()
-                        .child("Users").child(firebaseAuth.getUid());
-                databaseReference.removeValue();
-
                 final DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference()
                         .child("UsageDetails").child(firebaseAuth.getUid());
                 if(databaseReference1.getKey().equals(firebaseAuth.getUid())){
                     databaseReference1.removeValue();
                 }
 
-               FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                final DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference()
+                        .child("FuelIn").child(firebaseAuth.getUid());
+                if(databaseReference2.getKey().equals(firebaseAuth.getUid())){
+                    databaseReference2.removeValue();
+                }
+
+                final DatabaseReference databaseReference3 = FirebaseDatabase.getInstance().getReference()
+                        .child("FuelOut").child(firebaseAuth.getUid());
+                if(databaseReference3.getKey().equals(firebaseAuth.getUid())){
+                    databaseReference3.removeValue();
+                }
+
+                DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference()
+                        .child("Users").child(firebaseAuth.getUid());
+                databaseReference.removeValue();
+
+                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 firebaseUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
+
                             Toast.makeText(DeleteProfile.this, "Profile has been successfully deleted.",
                                     Toast.LENGTH_SHORT).show();
 

@@ -1,5 +1,6 @@
 package com.example.fuelmonitoring.user;
 
+import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.fuelmonitoring.user.fragments.feedback.feedback;
@@ -73,6 +75,12 @@ public class UserHome extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+        }
+
+        if(getSupportFragmentManager().getBackStackEntryCount() == 0) {
+        }
+        else {
+            getSupportFragmentManager().popBackStack();
         }
     }
 

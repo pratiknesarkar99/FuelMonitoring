@@ -19,7 +19,7 @@ public class SplashScreen extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        videoView = (VideoView) findViewById(R.id.videoview);
+        videoView =  findViewById(R.id.videoview);
         Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splashvideo);
         videoView.setVideoURI(video);
         videoView.setZOrderOnTop(true);

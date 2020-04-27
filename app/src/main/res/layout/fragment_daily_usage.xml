@@ -5,10 +5,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bordercayn"
+        android:gravity="center"
+        android:text="@string/daily_usage"
+        android:textColor="#00897B"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myRecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="561dp"
+        android:layout_below="@+id/textView43"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="65dp" />
 
     <Button

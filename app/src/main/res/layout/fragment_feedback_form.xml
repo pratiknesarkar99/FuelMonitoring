@@ -9,6 +9,7 @@
         android:id="@+id/textView17"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bordercayn"
         android:gravity="center"
         android:paddingTop="10dp"
@@ -32,34 +33,41 @@
                 android:id="@+id/textView25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
+                android:gravity="center"
                 android:text="@string/rate_the_ease_of_use_of_the_app"
                 android:textColor="#FDFDFD"
                 android:textSize="18sp" />
 
             <RatingBar
-                android:id="@+id/ratingBar"
+                android:id="@+id/ratingBar1"
                 style="@style/Widget.AppCompat.RatingBar"
-                android:layout_width="match_parent"
+                android:layout_width="275dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="#00897B"
+                android:background="@drawable/circle"
                 android:indeterminate="false"
                 android:numStars="5"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:rating="1" />
 
             <TextView
                 android:id="@+id/textView27"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
+                android:gravity="center"
                 android:text="@string/rate_the_ui_of_the_app"
                 android:textColor="#FDFDFD"
                 android:textSize="18sp" />
@@ -67,23 +75,28 @@
             <RatingBar
                 android:id="@+id/ratingBar2"
                 style="@style/Widget.AppCompat.RatingBar"
-                android:layout_width="match_parent"
+                android:layout_width="275dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="#00897B"
+                android:background="@drawable/circle"
                 android:indeterminate="false"
                 android:numStars="5"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:rating="1" />
 
             <TextView
                 android:id="@+id/textView28"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
+                android:gravity="center"
                 android:text="@string/rate_the_efficiency_of_the_app"
                 android:textColor="#FDFDFD"
                 android:textSize="18sp" />
@@ -91,23 +104,28 @@
             <RatingBar
                 android:id="@+id/ratingBar3"
                 style="@style/Widget.AppCompat.RatingBar"
-                android:layout_width="match_parent"
+                android:layout_width="275dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="#00897B"
+                android:background="@drawable/circle"
                 android:indeterminate="false"
                 android:numStars="5"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:rating="1" />
 
             <TextView
                 android:id="@+id/textView29"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
+                android:gravity="center"
                 android:text="@string/rate_the_accuracy_of_the_app"
                 android:textColor="#FDFDFD"
                 android:textSize="18sp" />
@@ -115,13 +133,16 @@
             <RatingBar
                 android:id="@+id/ratingBar4"
                 style="@style/Widget.AppCompat.RatingBar"
-                android:layout_width="match_parent"
+                android:layout_width="275dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="#00897B"
+                android:background="@drawable/circle"
                 android:indeterminate="false"
                 android:numStars="5"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:rating="1" />
 
             <TextView
@@ -137,7 +158,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText1"
+                android:id="@+id/ans1"
                 android:layout_width="match_parent"
                 android:layout_height="116dp"
                 android:layout_marginLeft="5dp"
@@ -165,7 +186,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/ans2"
                 android:layout_width="match_parent"
                 android:layout_height="116dp"
                 android:layout_marginLeft="5dp"
