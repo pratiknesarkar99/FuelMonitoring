@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.RingtoneManager;
@@ -18,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.MyApp;
+import com.example.fuelmonitoring.MainActivity;
 import com.example.fuelmonitoring.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -213,11 +215,19 @@ public class UserRegistration extends AppCompatActivity {
     }
 
     public  void  showNotification(String message){
+        Intent intent = new Intent(MyApp.getContext(), MainActivity.class);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(MyApp.getContext(), 100,
+                intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(MyApp.getContext(), "MyNotifications")
                 .setContentTitle("Fuel Monitoring System")
                 .setSmallIcon(R.drawable.gas)
                 .setAutoCancel(false)
                 .setPriority(999)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
                 .setContentText(message);
 
         builder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
