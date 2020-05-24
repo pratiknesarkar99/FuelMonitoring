@@ -2,6 +2,7 @@ package com.example.fuelmonitoring.user.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,9 @@ public class daily_usage extends Fragment {
 
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
 
-                    String s = dataSnapshot1.getKey();
+                    String s  = dataSnapshot1.getKey();
+
+                    System.out.println("test: " + s);
                     String d = s.substring(0, 8);
                     String t = s.substring(8, 14);
 

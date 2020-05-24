@@ -1,5 +1,6 @@
 package com.example.fuelmonitoring.user.fragments;
 
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -249,8 +250,8 @@ public class user_home extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     FuelInputIndicator fuelInputIndicator = dataSnapshot.getValue(FuelInputIndicator.class);
-                    fuelamt = fuelInputIndicator.getValue();
-                    FuelInTV.setText(fuelInputIndicator.getValue());
+                    fuelamt = fuelInputIndicator.getValue() + "";
+                    FuelInTV.setText(fuelInputIndicator.getValue() + "");
 
                     if (progressDialog.isShowing()) {
                         progressDialog.dismiss();
@@ -277,16 +278,18 @@ public class user_home extends Fragment {
 
         //Toast.makeText(this.getContext(), currentDateTime,Toast.LENGTH_SHORT).show();
 
-        databaseReference.child(currentDateTime).child("amt").setValue(fuelamt);
-
-        double prc = Double.parseDouble(fuelamt)* Double.parseDouble(fuelprice);
+        //If error occurs here, please check if you have the value for todays petrol price on the User Home Screen
+        double x = Double.parseDouble(fuelamt.trim());
+        double prc = x * Double.parseDouble(fuelprice);
         Double price = BigDecimal.valueOf(prc)
                 .setScale(3, RoundingMode.HALF_UP)
                 .doubleValue();
+
+        databaseReference.child(currentDateTime).child("amt").setValue(fuelamt);
         databaseReference.child(currentDateTime).child("price").setValue(price.toString());
 
         try {
-            Toast.makeText(MyApp.getContext(), "Fuel Monitoring System: Uploading new fuel input data...",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MyApp.getContext(), "Fuel Monitoring System: Uploading new fuel input data...", Toast.LENGTH_SHORT).show();
         } catch (NullPointerException e) {
             System.err.println(e);
         }
@@ -294,11 +297,18 @@ public class user_home extends Fragment {
 
     private  void  showNotification(){
         try{
+            Intent intent = new Intent(MyApp.getContext(), MainActivity.class);
+
+            PendingIntent pendingIntent = PendingIntent.getActivity(MyApp.getContext(), 100,
+                    intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
             NotificationCompat.Builder builder = new NotificationCompat.Builder(MyApp.getContext(), "MyNotifications")
                     .setContentTitle("Fuel Monitoring System")
                     .setSmallIcon(R.drawable.gas)
                     .setAutoCancel(false)
                     .setPriority(999)
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntent)
                     .setContentText("Fuel Input Detected: "+ FuelInTV.getText().toString());
 
             builder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
