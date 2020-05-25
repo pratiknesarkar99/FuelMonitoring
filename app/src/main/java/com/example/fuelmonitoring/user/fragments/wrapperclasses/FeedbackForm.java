@@ -2,12 +2,13 @@ package com.example.fuelmonitoring.user.fragments.wrapperclasses;
 
 public class FeedbackForm {
     private  String mail, ans1, ans2;
-    private float r1, r2, r3, r4;
+    private String r1, r2, r3, r4;
+    private  String currentDate;
 
     public FeedbackForm() {
     }
 
-    public FeedbackForm(String mail, String ans1, String ans2, float r1, float r2, float r3, float r4) {
+    public FeedbackForm(String mail, String ans1, String ans2, String r1, String r2, String r3, String r4, String currentDate) {
         this.mail = mail;
         this.ans1 = ans1;
         this.ans2 = ans2;
@@ -15,6 +16,7 @@ public class FeedbackForm {
         this.r2 = r2;
         this.r3 = r3;
         this.r4 = r4;
+        this.currentDate = currentDate;
     }
 
     public String getMail() {
@@ -41,35 +43,43 @@ public class FeedbackForm {
         this.ans2 = ans2;
     }
 
-    public float getR1() {
+    public String getR1() {
         return r1;
     }
 
-    public void setR1(float r1) {
+    public void setR1(String r1) {
         this.r1 = r1;
     }
 
-    public float getR2() {
+    public String getR2() {
         return r2;
     }
 
-    public void setR2(float r2) {
+    public void setR2(String r2) {
         this.r2 = r2;
     }
 
-    public float getR3() {
+    public String getR3() {
         return r3;
     }
 
-    public void setR3(float r3) {
+    public void setR3(String r3) {
         this.r3 = r3;
     }
 
-    public float getR4() {
+    public String getR4() {
         return r4;
     }
 
-    public void setR4(float r4) {
+    public void setR4(String r4) {
         this.r4 = r4;
+    }
+
+    public String getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(String currentDate) {
+        this.currentDate = currentDate;
     }
 }

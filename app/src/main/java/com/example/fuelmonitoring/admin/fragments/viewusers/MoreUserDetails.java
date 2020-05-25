@@ -65,7 +65,7 @@ public class MoreUserDetails extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
 
-                        uidTV.setText(uid);
+                            uidTV.setText(uid);
                         //System.out.println(userProfile.getFname());
                         fnameTV.setText(userProfile.getFname());
                         lnameTV.setText(userProfile.getLname());

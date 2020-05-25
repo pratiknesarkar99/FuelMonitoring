@@ -9,6 +9,7 @@ import com.example.fuelmonitoring.R;
 import com.example.fuelmonitoring.admin.fragments.admin_home;
 import com.example.fuelmonitoring.admin.fragments.contact_emails;
 import com.example.fuelmonitoring.admin.fragments.fuel_price_today;
+import com.example.fuelmonitoring.admin.fragments.user_feedback;
 import com.example.fuelmonitoring.admin.fragments.view_users;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -83,6 +84,12 @@ public class AdminHome extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
         }
+
+        if(getSupportFragmentManager().getBackStackEntryCount() == 0) {
+        }
+        else {
+            getSupportFragmentManager().popBackStack();
+        }
     }
 
     @Override
@@ -132,6 +139,8 @@ public class AdminHome extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new view_users()).commit();
         } else if (id == R.id.fuel_price_today) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fuel_price_today()).commit();
+        } else if (id == R.id.user_feedback) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new user_feedback()).commit();
         } else if (id == R.id.contact_emails) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new contact_emails()).commit();
         } else if (id == R.id.nav_share) {

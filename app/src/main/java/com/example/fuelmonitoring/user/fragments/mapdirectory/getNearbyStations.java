@@ -34,7 +34,7 @@ public class getNearbyStations extends FragmentActivity implements OnMapReadyCal
     double latitude;
     double longitude;
     private int PROXIMITY_RADIUS = 1000;
-    String google_maps_key = "AIzaSyDnN0jJHPmFgv50N3kTFHqyFSASbOLpnv4";
+    String google_maps_key = "AIzaSyBQXAHsqk9bocBKhE4AiMJl0pM49J4sD_c";
 
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;

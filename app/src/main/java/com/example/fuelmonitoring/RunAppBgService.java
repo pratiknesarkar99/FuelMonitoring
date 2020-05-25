@@ -17,7 +17,8 @@ public class RunAppBgService extends Service {
 
         //Toast.makeText(getApplicationContext(), "Fuel Monitoring service is  running...", Toast.LENGTH_SHORT).show();
 
-        return START_STICKY;
+//        return START_STICKY;
+        return START_NOT_STICKY;
     }
 
     @Override

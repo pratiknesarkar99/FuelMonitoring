@@ -117,7 +117,7 @@
     <string name="y_axis_cost_of_fuel_rs">y-axis: Cost of Fuel (Rs)</string>
     <string name="etr">---/---</string>
     <string name="fuel_usage_for_current_week" />
-    <string name="string_fuel_usage_for_current_week" >Fuel Usage for Current Week</string>
+    <string name="string_fuel_usage_for_current_week">Fuel Usage for Current Week</string>
     <string name="x_axis_day_of_week">x-axis: Day of Week</string>
     <string name="fsf">---/---</string>
     <string name="fuel_cost_for_current_week">Fuel Cost for Current Week</string>
@@ -148,4 +148,12 @@
     <string name="amount">Amount</string>
     <string name="welcome_to_adminhome">Welcome to AdminHome</string>
     <string name="com_android_fuelmonitoring_user">com.android.fuelmonitoring@user</string>
+    <string name="user_feedback">User Feedback</string>
+    <string name="view_users">View Users</string>
+    <string name="qqq">--</string>
+    <string name="view_system_users">View System Users</string>
+    <string name="update_today_s_fuel_price">Update Today\'s Fuel Price</string>
+    <string name="non_registered_user_e_mails_to_respond_to">Non-registered User E-mails to respond to</string>
+    <string name="registered_user_s_feedback">Registered User\'s Feedback</string>
+    <string name="total_system_users">Total System Users</string>
 </resources>

@@ -11,11 +11,15 @@
         <item
             android:id="@+id/view_users"
             android:icon="@drawable/ic_view_users"
-            android:title="View Users" />
+            android:title="@string/view_users" />
         <item
             android:id="@+id/fuel_price_today"
             android:icon="@drawable/gas"
             android:title="@string/today_s_fuel_price" />
+        <item
+            android:id="@+id/user_feedback"
+            android:icon="@drawable/ic_today_black_24dp"
+            android:title="@string/user_feedback" />
         <item
             android:id="@+id/contact_emails"
             android:icon="@drawable/ic_email_black_24dp"
