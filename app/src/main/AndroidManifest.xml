@@ -15,11 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".user.fragments.dailyusage.dailyGraphUsage"></activity>
+        <activity android:name=".admin.fragments.viewuserfeedback.MoreDetailedFeedback"></activity>
+        <activity android:name=".TheftDetection" />
+        <activity android:name=".user.fragments.dailyusage.dailyGraphUsage" />
 
         <service
             android:name=".RunAppBgService"
-            android:enabled="true"
+            android:enabled="false"
             android:exported="true" />
 
         <activity android:name=".user.DeleteProfile" />

@@ -28,6 +28,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class view_users extends Fragment {
+
     private RecyclerView recyclerView;
     private DatabaseReference databaseReferenceRootNode, databaseReference;
     private ArrayList<ViewUsers> list;

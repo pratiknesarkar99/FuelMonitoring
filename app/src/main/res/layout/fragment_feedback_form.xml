@@ -29,6 +29,26 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <EditText
+                android:id="@+id/feedbackemail"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/ovaledittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/enter_e_mail_here"
+                android:inputType="textEmailAddress"
+                android:textColor="#00897B"
+                android:textColorHighlight="#D8D81B60"
+                android:textColorHint="#D7E03473"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="match_parent"
@@ -163,6 +183,7 @@
                 android:layout_height="116dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
+                android:autofillHints=""
                 android:background="@drawable/bordercayn"
                 android:ems="10"
                 android:gravity="start|top"
@@ -170,8 +191,7 @@
                 android:padding="10dp"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:autofillHints="" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView31"
@@ -191,6 +211,7 @@
                 android:layout_height="116dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
+                android:autofillHints=""
                 android:background="@drawable/bordercayn"
                 android:ems="10"
                 android:gravity="start|top"
@@ -198,8 +219,7 @@
                 android:padding="10dp"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:autofillHints="" />
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/submitBtn"

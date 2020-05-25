@@ -1,8 +1,10 @@
 package com.example.fuelmonitoring.user.fragments;
 
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.os.Bundle;
@@ -23,9 +25,11 @@ import androidx.fragment.app.FragmentTransaction;
 import com.MyApp;
 import com.example.fuelmonitoring.MainActivity;
 import com.example.fuelmonitoring.R;
+import com.example.fuelmonitoring.TheftDetection;
 import com.example.fuelmonitoring.user.EditProfile;
 import com.example.fuelmonitoring.user.fragments.feedback.feedback;
 import com.example.fuelmonitoring.user.fragments.wrapperclasses.FuelInputIndicator;
+import com.example.fuelmonitoring.user.fragments.wrapperclasses.FuelOutputIndicator;
 import com.example.fuelmonitoring.user.fragments.wrapperclasses.FuelPriceToday;
 import com.example.fuelmonitoring.user.fragments.wrapperclasses.UnameFetcher;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,7 +52,7 @@ public class user_home extends Fragment {
     private TextView FuelInTV, UnameTV, FuelPriceTV, CityTV;
     private  String fnm, lnm;
     public   static  String cname;
-    private  static String fuelamt, fuelprice;
+    private  static String fuelamt, fuelprice, fuelOutputAmt;
     private Button dailyUsageBtn, feedbackFormBtn, editProfileBtn;
 
     @Nullable
@@ -107,6 +111,8 @@ public class user_home extends Fragment {
         fetchUserInfo();
         indicateFuelInput();
         fetchFuelPrice();
+
+        detectFuelOutput();
 
         return view;
     }
@@ -316,6 +322,73 @@ public class user_home extends Fragment {
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(MyApp.getContext());
             notificationManagerCompat.notify(1, builder.build());
         } catch (NullPointerException e){
+            System.err.println(e);
+        }
+    }
+
+    public  void detectFuelOutput(){
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        final DatabaseReference databaseReference = firebaseDatabase.getReference().child("FuelOut").child(firebaseAuth.getUid());
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    FuelOutputIndicator fuelOutputIndicator = dataSnapshot.getValue(FuelOutputIndicator.class);
+                    fuelOutputAmt = fuelOutputIndicator.getValue() + "";
+
+                    if (Double.parseDouble(fuelOutputAmt )> 0.2) {
+                        pushLog();
+                        showTheftNotification();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+
+    private  void  showTheftNotification(){
+        try{
+            Intent intent = new Intent(MyApp.getContext(), TheftDetection.class);
+            intent.putExtra("theftDetected",  true);
+
+            PendingIntent pendingIntent = PendingIntent.getActivity(MyApp.getContext(), 100,
+                    intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(MyApp.getContext(), "MyNotifications")
+                    .setContentTitle("Fuel Monitoring System")
+                    .setSmallIcon(R.drawable.gas)
+                    .setAutoCancel(false)
+                    .setPriority(999)
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntent)
+                    .setContentText("Fuel Theft/Leak Detected!!!  Fuel amount dropping too fast suddenly.");
+
+            builder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+
+            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(MyApp.getContext());
+            notificationManagerCompat.notify(1, builder.build());
+        } catch (NullPointerException e){
+            System.err.println(e);
+        }
+    }
+
+    public void pushLog(){
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference().child("TheftLog").child(firebaseAuth.getUid());
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
+        String currentDateTime = dateFormat.format(new Date());
+
+        //Toast.makeText(this.getContext(), currentDateTime,Toast.LENGTH_SHORT).show();
+
+        databaseReference.child(currentDateTime).child("amt").setValue(fuelamt);
+
+        try {
+            Toast.makeText(MyApp.getContext(), "Fuel Monitoring System: Pushing Theft Logs...", Toast.LENGTH_SHORT).show();
+        } catch (NullPointerException e) {
             System.err.println(e);
         }
     }

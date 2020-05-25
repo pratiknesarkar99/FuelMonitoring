@@ -14,8 +14,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.fuelmonitoring.R;
+import com.example.fuelmonitoring.user.fragments.user_home;
 import com.example.fuelmonitoring.user.fragments.wrapperclasses.FeedbackForm;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -122,13 +124,27 @@ public class feedback extends Fragment {
         progressDialog.setMessage("Submitting your Feedback, please wait...");
         progressDialog.show();
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentDateTime = dateFormat.format(new Date());
 
-        FeedbackForm feedbackForm = new FeedbackForm(mail, ans1, ans2, r1, r2, r3, r4);
-        databaseReference.child(currentDateTime).child(firebaseAuth.getUid()).setValue(feedbackForm);
+        FeedbackForm feedbackForm = new FeedbackForm(mail, ans1, ans2, r1+"", r2+"", r3+"", r4+"", currentDateTime);
+        databaseReference.child(firebaseAuth.getUid()).setValue(feedbackForm);
 
         progressDialog.dismiss();
         Toast.makeText(getContext(), "Thank you for your valuable Feedback", Toast.LENGTH_SHORT).show();
+
+        for (Fragment fragment : getActivity().getSupportFragmentManager().getFragments()) {
+            getActivity().getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+        }
+        Fragment fragment = null;
+        fragment = new user_home();
+        replaceFragment(fragment);
+    }
+
+    public void replaceFragment(Fragment someFragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, someFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

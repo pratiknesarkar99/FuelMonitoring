@@ -47,7 +47,7 @@
                     android:layout_margin="10dp"
                     app:cardBackgroundColor="#008577"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp" tools:targetApi="lollipop">
+                    app:cardElevation="8dp" >
 
                     <TextView
                         android:id="@+id/userCountTV"
@@ -78,7 +78,7 @@
                     android:layout_margin="10dp"
                     app:cardBackgroundColor="#D3108B79"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp" tools:targetApi="lollipop">
+                    app:cardElevation="8dp">
 
                     <Button
                         android:id="@+id/viewSysUsersBtn"
@@ -102,7 +102,7 @@
                     android:layout_margin="10dp"
                     app:cardBackgroundColor="#D3108B79"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp" tools:targetApi="lollipop">
+                    app:cardElevation="8dp">
 
                     <Button
                         android:id="@+id/viewFeedbackBtn"
@@ -126,7 +126,7 @@
                     android:layout_margin="10dp"
                     app:cardBackgroundColor="#D3108B79"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp" tools:targetApi="lollipop">
+                    app:cardElevation="8dp">
 
                     <Button
                         android:id="@+id/updateTodaysPriceBtn"
@@ -163,7 +163,7 @@
                     android:layout_margin="10dp"
                     app:cardBackgroundColor="#D3108B79"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp" tools:targetApi="lollipop">
+                    app:cardElevation="8dp">
 
                     <Button
                         android:id="@+id/viewContachEmailsBtn"
@@ -187,7 +187,7 @@
                     android:layout_margin="10dp"
                     app:cardBackgroundColor="#D3108B79"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp" tools:targetApi="lollipop">
+                    app:cardElevation="8dp">
 
                     <Button
                         android:id="@+id/xyz5"
@@ -209,7 +209,7 @@
                     android:layout_margin="10dp"
                     app:cardBackgroundColor="#D3108B79"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp" tools:targetApi="lollipop">
+                    app:cardElevation="8dp">
 
                     <Button
                         android:id="@+id/xyz6"
