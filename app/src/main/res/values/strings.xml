@@ -128,7 +128,7 @@
     <string name="view_update_your_profile">View / Update your Profile</string>
     <string name="_0_0">0.0</string>
     <string name="give_application_feedback">GIve Application Feedback</string>
-    <string name="total_fuel_used_today">Total Fuel used Today</string>
+    <string name="total_fuel_used_today">Daily Fuel Usage</string>
     <string name="l">/L</string>
     <string name="city">City :</string>
     <string name="enter_strong_password">Enter Strong Password</string>
@@ -156,4 +156,5 @@
     <string name="non_registered_user_e_mails_to_respond_to">Non-registered User E-mails to respond to</string>
     <string name="registered_user_s_feedback">Registered User\'s Feedback</string>
     <string name="total_system_users">Total System Users</string>
+    <string name="system_administrator_account">System Administrator Account</string>
 </resources>

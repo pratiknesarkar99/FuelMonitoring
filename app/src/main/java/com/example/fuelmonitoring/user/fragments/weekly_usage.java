@@ -178,12 +178,16 @@ public class weekly_usage extends Fragment {
                         index = calender.get(Calendar.DAY_OF_WEEK);
                         //Log.d("index", index + "");
 
-                        DailyUsageDataFetcher dailyUsageDataFetcher = dataSnapshot1.getValue(DailyUsageDataFetcher.class);
+                        try {
+                            DailyUsageDataFetcher dailyUsageDataFetcher = dataSnapshot1.getValue(DailyUsageDataFetcher.class);
 
-                        price += Float.parseFloat(dailyUsageDataFetcher.getPrice());
-                        dataPointsPrice.add(new Entry(index, Float.parseFloat(dailyUsageDataFetcher.getPrice())));
+                            price += Float.parseFloat(dailyUsageDataFetcher.getPrice());
 
-                        //Log.d("datasnap", dataSnapshot1.toString());
+                            float x = Float.parseFloat(dailyUsageDataFetcher.getPrice());
+                            dataPointsPrice.add(new Entry(index, x));
+
+                            //Log.d("datasnap", dataSnapshot1.toString());
+                        } catch (Exception e){}
                     }
                 }
 

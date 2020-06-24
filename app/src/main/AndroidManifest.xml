@@ -21,7 +21,7 @@
 
         <service
             android:name=".RunAppBgService"
-            android:enabled="false"
+            android:enabled="true"
             android:exported="true" />
 
         <activity android:name=".user.DeleteProfile" />
